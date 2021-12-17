@@ -16,7 +16,5 @@ So character can fly flyable objects
 Games new version Done
 
 
-
-Now character should fight 
-
-Fight functionalists added
+Bugs are fixxxxxxxxed in fight function
+Now character can fight.
