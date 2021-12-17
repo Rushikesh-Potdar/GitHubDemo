@@ -1,2 +1,11 @@
 This is first line of my Game development and this is done on my main branch
 So I have completed this beautiful game... on date 01-01-2021
+
+I think now I need to add another game feature that 
+Game characters should swim in water.. let's add it 
+
+ func CharacterCanSwim() -> Bool{
+
+	}
+
+Done // this is done by my New-Branch...
