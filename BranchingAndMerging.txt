@@ -1,0 +1,57 @@
+mac@Macs-iMac ~ % cd Desktop 
+mac@Macs-iMac Desktop % mkdir GitAndGitHubDemo
+mac@Macs-iMac Desktop % cd GitAndGitHubDemo 
+mac@Macs-iMac GitAndGitHubDemo % touch BranchingAndMerging.txt
+mac@Macs-iMac GitAndGitHubDemo % git branch GTA-VI 
+fatal: not a git repository (or any of the parent directories): .git
+mac@Macs-iMac GitAndGitHubDemo % ls -a
+.			file1.txt		file4.txt
+..			file2.txt		secrate.txt
+BranchingAndMerging.txt	file3.txt
+mac@Macs-iMac GitAndGitHubDemo % git init
+Initialized empty Git repository in /Users/mac/Desktop/GitAndGitHubDemo/.git/
+mac@Macs-iMac GitAndGitHubDemo % git branch GTA-VI
+fatal: Not a valid object name: 'master'.
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "initial commit"
+[master (root-commit) 8838fda] initial commit
+ 6 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 BranchingAndMerging.txt
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+ create mode 100644 file4.txt
+ create mode 100644 secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00 (HEAD -> master)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch master
+nothing to commit, working tree clean
+mac@Macs-iMac GitAndGitHubDemo % touch GTA-SAN-ANDREAS.txt
+mac@Macs-iMac GitAndGitHubDemo % touch GTA-IV.txt         
+mac@Macs-iMac GitAndGitHubDemo % touch GTA-VI.txt
+mac@Macs-iMac GitAndGitHubDemo % touch GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % rm GTA-VI.txt
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	GTA-III.txt		GTA-V.txt
+GTA-I.txt		GTA-IV.txt		GTA-Vice-City.txt
+GTA-II.txt		GTA-SAN-ANDREAS.txt	secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git branch GTA-SIX
+mac@Macs-iMac GitAndGitHubDemo % 
+/* how to see on which branch you are working???.......
+
+Use following command to see..
+
+mac@Macs-iMac GitAndGitHubDemo % git branch
+  GTA-SIX
+* master
+mac@Macs-iMac GitAndGitHubDemo %  
+// this '*' shows selected branch on which you are working..
+
+
+So How to change or switch from one branch to another one
+Use below command to do it
