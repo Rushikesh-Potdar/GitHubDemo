@@ -14,3 +14,7 @@ Now I need to add flying feature in my game
 So character can fly flyable objects 
 
 Games new version Done
+
+
+Bugs are fixxxxxxxxed in fight function
+Now character can fight.
