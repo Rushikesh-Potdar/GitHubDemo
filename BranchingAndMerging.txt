@@ -55,3 +55,613 @@ mac@Macs-iMac GitAndGitHubDemo %
 
 So How to change or switch from one branch to another one
 Use below command to do it  
+
+$ git merge <branch-name>
+
+mac@Macs-iMac GitAndGitHubDemo % git branch   
+  GTA-SIX
+* master
+mac@Macs-iMac GitAndGitHubDemo % git checkout GTA-SIX
+M	BranchingAndMerging.txt
+D	file1.txt
+D	file2.txt
+D	file3.txt
+D	file4.txt
+Switched to branch 'GTA-SIX'
+mac@Macs-iMac GitAndGitHubDemo % git branch
+* GTA-SIX
+  master
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+M	BranchingAndMerging.txt
+D	file1.txt
+D	file2.txt
+D	file3.txt
+D	file4.txt
+Switched to branch 'master'
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "all files names are changed"
+On branch master
+Changes not staged for commit:
+	modified:   BranchingAndMerging.txt
+	deleted:    file1.txt
+	deleted:    file2.txt
+	deleted:    file3.txt
+	deleted:    file4.txt
+
+Untracked files:
+	.DS_Store
+	GTA-I.txt
+	GTA-II.txt
+	GTA-III.txt
+	GTA-IV.txt
+	GTA-SAN-ANDREAS.txt
+	GTA-V.txt
+	GTA-Vice-City.txt
+
+no changes added to commit
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00 (HEAD -> master, GTA-SIX)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00 (HEAD -> master, GTA-SIX)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .DS_Store
+	modified:   BranchingAndMerging.txt
+	renamed:    file1.txt -> GTA-I.txt
+	renamed:    file2.txt -> GTA-II.txt
+	renamed:    file3.txt -> GTA-III.txt
+	renamed:    file4.txt -> GTA-IV.txt
+	new file:   GTA-SAN-ANDREAS.txt
+	new file:   GTA-V.txt
+	new file:   GTA-Vice-City.txt
+
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "all file names are renamed"
+[master 3facc54] all file names are renamed
+ 9 files changed, 57 insertions(+)
+ create mode 100644 .DS_Store
+ rename file1.txt => GTA-I.txt (100%)
+ rename file2.txt => GTA-II.txt (100%)
+ rename file3.txt => GTA-III.txt (100%)
+ rename file4.txt => GTA-IV.txt (100%)
+ create mode 100644 GTA-SAN-ANDREAS.txt
+ create mode 100644 GTA-V.txt
+ create mode 100644 GTA-Vice-City.txt
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 3facc5414ce270c9923cde04b9d16d5684114d46 (HEAD -> master)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:13:07 2021 +0530
+
+    all file names are renamed
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00 (GTA-SIX)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % clear
+
+mac@Macs-iMac GitAndGitHubDemo % git branch
+  GTA-SIX
+* master
+mac@Macs-iMac GitAndGitHubDemo % git checkout GTA-SIX
+Switched to branch 'GTA-SIX'
+mac@Macs-iMac GitAndGitHubDemo % git branch master
+fatal: A branch named 'master' already exists.
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+	BranchingAndMerging.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+	BranchingAndMerging.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "branching and merging file saved"
+On branch GTA-SIX
+Changes not staged for commit:
+	modified:   BranchingAndMerging.txt
+
+no changes added to commit
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+	BranchingAndMerging.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+mac@Macs-iMac GitAndGitHubDemo % git add BranchingAndMerging.txt 
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "branching and merging file saved"
+[GTA-SIX 27eae0d] branching and merging file saved
+ 1 file changed, 66 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+mac@Macs-iMac GitAndGitHubDemo % open BranchingAndMerging.txt 
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git checkout GTA-SIX             
+error: Your local changes to the following files would be overwritten by checkout:
+	BranchingAndMerging.txt
+	GTA-V.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "GTA-V development completed "  
+On branch master
+Changes not staged for commit:
+	modified:   BranchingAndMerging.txt
+	modified:   GTA-V.txt
+
+no changes added to commit
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   BranchingAndMerging.txt
+	modified:   GTA-V.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mac@Macs-iMac GitAndGitHubDemo % git add . 
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "GTA-V development completed "
+[master 4f2d69a] GTA-V development completed
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+mac@Macs-iMac GitAndGitHubDemo % branch checkout GTA-SIX
+zsh: command not found: branch
+mac@Macs-iMac GitAndGitHubDemo % git checkout GTA-SIX 
+Switched to branch 'GTA-SIX'
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt
+The file /Users/mac/Desktop/GitAndGitHubDemo/GTA-V.txt does not exist.
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	file2.txt		file4.txt
+file1.txt		file3.txt		secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch GTA-SIX
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   BranchingAndMerging.txt
+
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 27eae0d52768886cb3f543f3250184a22a2720db (HEAD -> GTA-SIX)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:29:18 2021 +0530
+
+    branching and merging file saved
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	file2.txt		file4.txt
+file1.txt		file3.txt		secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+	BranchingAndMerging.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+mac@Macs-iMac GitAndGitHubDemo % git commit -m   
+error: switch `m' requires a value
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "GTA-SIX branch does not have GTA-V.txt file "
+[GTA-SIX 6092c2c] GTA-SIX branch does not have GTA-V.txt file
+ 1 file changed, 2 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	GTA-III.txt		GTA-V.txt
+GTA-I.txt		GTA-IV.txt		GTA-Vice-City.txt
+GTA-II.txt		GTA-SAN-ANDREAS.txt	secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 4f2d69aa8b81175d62cbd827235d0a1928df3778 (HEAD -> master)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:35:30 2021 +0530
+
+    GTA-V development completed
+
+commit 3facc5414ce270c9923cde04b9d16d5684114d46
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:13:07 2021 +0530
+
+    all file names are renamed
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch master
+nothing to commit, working tree clean
+mac@Macs-iMac GitAndGitHubDemo % git checkout GTA-SIX
+Switched to branch 'GTA-SIX'
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	file2.txt		file4.txt
+file1.txt		file3.txt		secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch GTA-SIX
+nothing to commit, working tree clean
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "general commit "
+On branch GTA-SIX
+nothing to commit, working tree clean
+mac@Macs-iMac GitAndGitHubDemo % ls                             
+BranchingAndMerging.txt	file2.txt		file4.txt
+file1.txt		file3.txt		secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+mac@Macs-iMac GitAndGitHubDemo % git branch New-Branch
+mac@Macs-iMac GitAndGitHubDemo % git branch
+  GTA-SIX
+  New-Branch
+* master
+mac@Macs-iMac GitAndGitHubDemo % git checkout New-Branch
+Switched to branch 'New-Branch'
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	GTA-III.txt		GTA-V.txt
+GTA-I.txt		GTA-IV.txt		GTA-Vice-City.txt
+GTA-II.txt		GTA-SAN-ANDREAS.txt	secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git satus
+git: 'satus' is not a git command. See 'git --help'.
+
+The most similar command is
+	status
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch New-Branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   GTA-V.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "new swim feature added in my game "
+On branch New-Branch
+Changes not staged for commit:
+	modified:   GTA-V.txt
+
+no changes added to commit
+mac@Macs-iMac GitAndGitHubDemo % git add .                                         
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch New-Branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   GTA-V.txt
+
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "new swim feature added in my game "
+[New-Branch 36cdd23] new swim feature added in my game
+ 1 file changed, 9 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 36cdd2356b051e4bb9ce7050d7ee9760e80b0ec3 (HEAD -> New-Branch)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:49:34 2021 +0530
+
+    new swim feature added in my game
+
+commit 4f2d69aa8b81175d62cbd827235d0a1928df3778 (master)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:35:30 2021 +0530
+
+    GTA-V development completed
+
+commit 3facc5414ce270c9923cde04b9d16d5684114d46
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:13:07 2021 +0530
+
+    all file names are renamed
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % git branch
+  GTA-SIX
+* New-Branch
+  master
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+mac@Macs-iMac GitAndGitHubDemo % git merge New-Branch
+Updating 4f2d69a..36cdd23
+Fast-forward
+ GTA-V.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 36cdd2356b051e4bb9ce7050d7ee9760e80b0ec3 (HEAD -> master, New-Branch)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:49:34 2021 +0530
+
+    new swim feature added in my game
+
+commit 4f2d69aa8b81175d62cbd827235d0a1928df3778
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:35:30 2021 +0530
+
+    GTA-V development completed
+
+commit 3facc5414ce270c9923cde04b9d16d5684114d46
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:13:07 2021 +0530
+
+    all file names are renamed
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git branch
+  GTA-SIX
+  New-Branch
+* master
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git remote add origin https://github.com/Rushikesh-Potdar/GitHubDemo.git
+mac@Macs-iMac GitAndGitHubDemo % git push -u origin master
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (13/13), done.
+Writing objects: 100% (14/14), 2.35 KiB | 2.35 MiB/s, done.
+Total 14 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), done.
+To https://github.com/Rushikesh-Potdar/GitHubDemo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+mac@Macs-iMac GitAndGitHubDemo % git branch New-Branch
+fatal: A branch named 'New-Branch' already exists.
+mac@Macs-iMac GitAndGitHubDemo % git checkout New-Branch
+Switched to branch 'New-Branch'
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	GTA-III.txt		GTA-V.txt
+GTA-I.txt		GTA-IV.txt		GTA-Vice-City.txt
+GTA-II.txt		GTA-SAN-ANDREAS.txt	secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "flying feature add"
+[New-Branch 92ca0bd] flying feature add
+ 1 file changed, 5 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git merge New-branch
+Updating 36cdd23..92ca0bd
+Fast-forward
+ GTA-V.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 92ca0bdf493f341178dd21f7e644aa76d409c2d2 (HEAD -> master, New-Branch)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:30:45 2021 +0530
+
+    flying feature add
+
+commit 36cdd2356b051e4bb9ce7050d7ee9760e80b0ec3 (origin/master)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:49:34 2021 +0530
+
+    new swim feature added in my game
+
+commit 4f2d69aa8b81175d62cbd827235d0a1928df3778
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:35:30 2021 +0530
+
+    GTA-V development completed
+
+commit 3facc5414ce270c9923cde04b9d16d5684114d46
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:13:07 2021 +0530
+
+    all file names are renamed
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 21:32:56 2021 +0530
+
+    initial commit
+mac@Macs-iMac GitAndGitHubDemo % git push -u origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 397 bytes | 397.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/Rushikesh-Potdar/GitHubDemo.git
+   36cdd23..92ca0bd  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+mac@Macs-iMac GitAndGitHubDemo % git branch another-branch
+mac@Macs-iMac GitAndGitHubDemo % git branch
+  GTA-SIX
+  New-Branch
+  another-branch
+* master
+mac@Macs-iMac GitAndGitHubDemo % git checkout another-branch
+Switched to branch 'another-branch'
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git commit -m " fight function add " 
+[another-branch 7573b61]  fight function add
+ 1 file changed, 6 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git status
+On branch another-branch
+nothing to commit, working tree clean
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 7573b61ee70efbbdcf175575d6c55b7dbc232d39 (HEAD -> another-branch)
+commit 7573b61ee70efbbdcf175575d6c55b7dbc232d39 (HEAD -> another-branch)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:36:16 2021 +0530
+
+     fight function add
+
+commit 92ca0bdf493f341178dd21f7e644aa76d409c2d2 (origin/master, master, New-Branch)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:30:45 2021 +0530
+
+    flying feature add
+
+commit 36cdd2356b051e4bb9ce7050d7ee9760e80b0ec3
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:49:34 2021 +0530
+
+    new swim feature added in my game
+
+commit 4f2d69aa8b81175d62cbd827235d0a1928df3778
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:35:30 2021 +0530
+
+    GTA-V development completed
+
+commit 3facc5414ce270c9923cde04b9d16d5684114d46
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Fri Dec 17 23:13:07 2021 +0530
+
+    all file names are renamed
+
+commit 8838fdaaaf7777119eb21cd0a8f8f7c41d7e8c00
+mac@Macs-iMac GitAndGitHubDemo % 
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+mac@Macs-iMac GitAndGitHubDemo % git merge another-branch
+Updating 92ca0bd..7573b61
+Fast-forward
+ GTA-V.txt | 6 ++++++
+ 1 file changed, 6 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git push -u origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 357 bytes | 357.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/Rushikesh-Potdar/GitHubDemo.git
+   92ca0bd..7573b61  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+mac@Macs-iMac GitAndGitHubDemo % git checkout another-branch
+Switched to branch 'another-branch'
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git add .  
+mac@Macs-iMac GitAndGitHubDemo % git commit -m "there is bug in fight function"
+[another-branch 34fbd8c] there is bug in fight function
+ 1 file changed, 6 deletions(-)
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+mac@Macs-iMac GitAndGitHubDemo % ls
+BranchingAndMerging.txt	GTA-III.txt		GTA-V.txt
+GTA-I.txt		GTA-IV.txt		GTA-Vice-City.txt
+GTA-II.txt		GTA-SAN-ANDREAS.txt	secrate.txt
+mac@Macs-iMac GitAndGitHubDemo % touch graphicsUpdate.txt
+mac@Macs-iMac GitAndGitHubDemo % open graphicsUpdate.txt 
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git commit -m " some graphics updated"
+[master bfcef24]  some graphics updated
+ 1 file changed, 8 insertions(+)
+ create mode 100644 graphicsUpdate.txt
+mac@Macs-iMac GitAndGitHubDemo % git checkout another-branch
+Switched to branch 'another-branch'
+mac@Macs-iMac GitAndGitHubDemo % open GTA-V.txt 
+mac@Macs-iMac GitAndGitHubDemo % git add .
+mac@Macs-iMac GitAndGitHubDemo % git commit -m " bug fixed in fight func"
+[another-branch 6eb2e12]  bug fixed in fight func
+ 1 file changed, 4 insertions(+)
+mac@Macs-iMac GitAndGitHubDemo % git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+mac@Macs-iMac GitAndGitHubDemo % git merge another-branch
+Merge made by the 'recursive' strategy.
+ GTA-V.txt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+mac@Macs-iMac GitAndGitHubDemo % git log
+commit 4c65607135c38a47f2f9b8ed2e0493356e4591cc (HEAD -> master)
+Merge: bfcef24 6eb2e12
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:49:21 2021 +0530
+
+    Merge branch 'another-branch'
+
+commit 6eb2e1200ada2ff0c4a7ee0c759f4e73aee0a690 (another-branch)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:48:52 2021 +0530
+
+     bug fixed in fight func
+
+commit bfcef244834a02fa4b704fbf7ee8f10f5ca53b4f
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:46:37 2021 +0530
+
+     some graphics updated
+
+commit 34fbd8c604d79c2da85e716f00ce74cfd44b147c
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:42:56 2021 +0530
+
+    there is bug in fight function
+
+commit 7573b61ee70efbbdcf175575d6c55b7dbc232d39 (origin/master)
+Author: Rushikesh-Potdar <rushikeshpotdar349@gmail.com>
+Date:   Sat Dec 18 00:36:16 2021 +0530
+
+     fight function add
+
+commit 92ca0bdf493f341178dd21f7e644aa76d409c2d2 (New-Branch)
+ ESCOC
+1cc (HEAD -> master)
+
+@gmail.com>
+
+
+
+
+690 (another-branch)
+@gmail.com>
+
+
+
+
+b4f
+@gmail.com>
+
+
+
+
+47c
+@gmail.com>
+
+
+
+
+d39 (origin/master)
+@gmail.com>
+
+
+
+
+mac@Macs-iMac GitAndGitHubDemo % 
+mac@Macs-iMac GitAndGitHubDemo % git push -u origin master 
+Enumerating objects: 13, done.
+Counting objects: 100% (13/13), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (11/11), 1.19 KiB | 1.19 MiB/s, done.
+Total 11 (delta 7), reused 0 (delta 0)
+remote: Resolving deltas: 100% (7/7), completed with 2 local objects.
+To https://github.com/Rushikesh-Potdar/GitHubDemo.git
+   7573b61..4c65607  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+mac@Macs-iMac GitAndGitHubDemo % 
+
+
+
