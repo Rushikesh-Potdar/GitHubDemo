@@ -54,4 +54,4 @@ mac@Macs-iMac GitAndGitHubDemo %
 
 
 So How to change or switch from one branch to another one
-Use below command to do it
+Use below command to do it  
